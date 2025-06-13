@@ -3,15 +3,20 @@ import java.util.Random;
 public class EmployeeWage {
     public static void main(String[] args) {
 
-        final int WAGE_PER_HOUR = 20;
-        final int FULL_DAY_HOUR = 8;
-        final int PART_TIME_HOUR = 4;
-        final int MAX_WORKING_DAYS = 20;
-        final int MAX_WORKING_HOURS = 100;
-        int totalWage =0;
-        int totalWorkingHours = 0;
-        int totalWorkingDays = 0;
-        Random random = new Random();
+    computeEmployeeWage();
+
+    }
+   static final int WAGE_PER_HOUR = 20;
+   static final int FULL_DAY_HOUR = 8;
+   static final int PART_TIME_HOUR = 4;
+   static final int MAX_WORKING_DAYS = 20;
+   static final int MAX_WORKING_HOURS = 100;
+   static int totalWage =0;
+   static int totalWorkingHours = 0;
+   static int totalWorkingDays = 0;
+   static Random random = new Random();
+
+    public static void computeEmployeeWage(){
 
         while(totalWorkingDays < MAX_WORKING_DAYS && totalWorkingHours < MAX_WORKING_HOURS) {
 
