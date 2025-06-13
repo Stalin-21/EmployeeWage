@@ -12,7 +12,11 @@ public class EmployeeWage {
         int totalWorkingHours = 0;
         int totalWorkingDays = 0;
         Random random = new Random();
+        // UC5: Calculate wages for 20 working days
+        // Already included in the loop condition
 
+        // UC6: Calculate wages till a condition of total working hours or days is reached
+        // Already included in the loop condition
         while(totalWorkingDays < MAX_WORKING_DAYS && totalWorkingHours < MAX_WORKING_HOURS) {
 
             int attendance = random.nextInt(3); // 0-absent // 1 - present full time // 2 - present part-time
