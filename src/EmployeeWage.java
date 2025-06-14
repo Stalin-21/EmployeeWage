@@ -3,22 +3,26 @@ import java.util.Random;
 public class EmployeeWage {
     public static void main(String[] args) {
 
-    computeEmployeeWage();
+        System.out.println("Welcome to Employee wage computation program.");
 
+        System.out.println("Computing wages for multiple companies:\n");
+
+        computeEmployeeWage("TCS", 20, 8, 4, 20, 100);
+        System.out.println();
+        computeEmployeeWage("Infosys", 22, 8, 4, 22, 120);
     }
-   static final int WAGE_PER_HOUR = 20;
-   static final int FULL_DAY_HOUR = 8;
-   static final int PART_TIME_HOUR = 4;
-   static final int MAX_WORKING_DAYS = 20;
-   static final int MAX_WORKING_HOURS = 100;
-   static int totalWage =0;
-   static int totalWorkingHours = 0;
-   static int totalWorkingDays = 0;
-   static Random random = new Random();
 
-    public static void computeEmployeeWage(){
 
-        while(totalWorkingDays < MAX_WORKING_DAYS && totalWorkingHours < MAX_WORKING_HOURS) {
+
+    public static void computeEmployeeWage(String companyName, int wagePerHour, int fullDayHour, int partTimeHour, int maxWorkingDays, int maxWorkingHours) {
+         int totalWage =0;
+         int totalWorkingHours = 0;
+         int totalWorkingDays = 0;
+         Random random = new Random();
+
+        System.out.println("Calculating wages for " + companyName);
+
+        while(totalWorkingDays < maxWorkingDays && totalWorkingHours < maxWorkingHours) {
 
             int attendance = random.nextInt(3); // 0-absent // 1 - present full time // 2 - present part-time
             int dailyWage =0;
@@ -29,13 +33,13 @@ public class EmployeeWage {
                     break;
                 case 1:
                     System.out.println("Employee present: Full time");
-                    dailyWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
-                    totalWorkingHours += FULL_DAY_HOUR;
+                    dailyWage = wagePerHour * fullDayHour;
+                    totalWorkingHours += fullDayHour;
                     break;
                 case 2:
                     System.out.println("Employee present: Part time");
-                    dailyWage = WAGE_PER_HOUR * PART_TIME_HOUR;
-                    totalWorkingHours += PART_TIME_HOUR;
+                    dailyWage = wagePerHour * partTimeHour;
+                    totalWorkingHours += partTimeHour;
                     break;
 
                 default:
@@ -49,10 +53,12 @@ public class EmployeeWage {
 
         }
 
-        System.out.println("===========================");
-        System.out.println("Total Wage: "+totalWage);
-        System.out.println("Total working days: "+totalWorkingDays);
-        System.out.println("Total working hours: "+totalWorkingHours);
+        System.out.println("-----------------------------");
+        System.out.println("Company: " + companyName);
+        System.out.println("Total Wage: " + totalWage);
+        System.out.println("Total Working Days: " + totalWorkingDays);
+        System.out.println("Total Working Hours: " + totalWorkingHours);
+        System.out.println("-----------------------------");
 
     }
 }
