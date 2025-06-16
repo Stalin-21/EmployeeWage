@@ -1,10 +1,12 @@
 package com.employeewage;
-import com.employeewage.CompanyEmpWage;
+
 
 import java.util.ArrayList;
 import java.util.Random;
 
 class EmpWageBuilder implements IComputeEmpWage{
+
+    // UC 12: Refactor to manage Employee Wage for multiple companies using a list
     private ArrayList<CompanyEmpWage> companyList = new ArrayList<>();
     private Random random = new Random();
 
