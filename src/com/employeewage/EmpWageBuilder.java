@@ -4,15 +4,15 @@ import com.employeewage.CompanyEmpWage;
 import java.util.ArrayList;
 import java.util.Random;
 
-class EmpWageBuilder {
+class EmpWageBuilder implements IComputeEmpWage{
     private ArrayList<CompanyEmpWage> companyList = new ArrayList<>();
     private Random random = new Random();
 
-    public void addCompany(String name, int wagePerHour, int fullDayHour, int partTimeHour, int maxWorkingDays, int maxWorkingHours) {
+    public void addCompanyEmpWage(String name, int wagePerHour, int fullDayHour, int partTimeHour, int maxWorkingDays, int maxWorkingHours) {
         companyList.add(new CompanyEmpWage(name, wagePerHour, fullDayHour, partTimeHour, maxWorkingDays, maxWorkingHours));
     }
 
-    public void computeWages() {
+    public void computeEmpWage() {
         for (CompanyEmpWage company : companyList) {
             int totalWage = computeWageForCompany(company);
             company.setTotalWage(totalWage);
