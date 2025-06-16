@@ -1,4 +1,4 @@
-# Employee Wage Computation – ome
+# Employee Wage Computation
 
 This is a simple Java console application that simulates employee wage computation based on random attendance, working hours, and company rules.
 
