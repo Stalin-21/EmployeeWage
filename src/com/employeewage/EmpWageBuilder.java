@@ -50,6 +50,7 @@ class EmpWageBuilder implements IComputeEmpWage{
             }
 
             totalWage += dailyWage;
+            company.dailyWages.add(dailyWage); // UC13: Add daily wage to the list
             totalWorkingDays++;
             System.out.println("Day " + totalWorkingDays + ": Daily Wage = " + dailyWage);
         }
