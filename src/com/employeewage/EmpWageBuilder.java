@@ -22,6 +22,17 @@ class EmpWageBuilder implements IComputeEmpWage{
         }
     }
 
+    public int getTotalWageByCompany(String companyName) {
+        for (CompanyEmpWage company : companyList) {
+            if (company.companyName.equalsIgnoreCase(companyName)) {
+                return company.totalWage;
+            }
+        }
+        System.out.println("Company not found: " + companyName);
+        return -1;
+    }
+
+
     private int computeWageForCompany(CompanyEmpWage company) {
         int totalWage = 0;
         int totalWorkingDays = 0;
