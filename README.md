@@ -38,5 +38,5 @@ The application calculates the total employee wage for a month by:
 ## How to Run
 
 ```bash
-javac EmployeeWage.java
-java EmployeeWage
+javac com.employeewage.EmployeeWage.java
+java com.employeewage.EmployeeWage
