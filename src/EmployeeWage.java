@@ -1,35 +1,40 @@
 import java.util.Random;
 
-public class EmployeeWage {
-    public static void main(String[] args) {
+class EmpWageBuilder {
+    // Instance Variables
+    private String companyName;
+    private int wagePerHour;
+    private int fullDayHour;
+    private int partTimeHour;
+    private int maxWorkingDays;
+    private int maxWorkingHours;
+    private int totalWage;
 
-        System.out.println("Welcome to Employee wage computation program.");
-
-        System.out.println("Computing wages for multiple companies:\n");
-
-        computeEmployeeWage("TCS", 20, 8, 4, 20, 100);
-        System.out.println();
-        computeEmployeeWage("Infosys", 22, 8, 4, 22, 120);
+    // Constructor
+    public EmpWageBuilder(String companyName, int wagePerHour, int fullDayHour, int partTimeHour, int maxWorkingDays, int maxWorkingHours) {
+        this.companyName = companyName;
+        this.wagePerHour = wagePerHour;
+        this.fullDayHour = fullDayHour;
+        this.partTimeHour = partTimeHour;
+        this.maxWorkingDays = maxWorkingDays;
+        this.maxWorkingHours = maxWorkingHours;
     }
 
-
-
-    public static void computeEmployeeWage(String companyName, int wagePerHour, int fullDayHour, int partTimeHour, int maxWorkingDays, int maxWorkingHours) {
-         int totalWage =0;
-         int totalWorkingHours = 0;
-         int totalWorkingDays = 0;
-         Random random = new Random();
+    // Method to compute employee wage
+    public void computeEmployeeWage() {
+        int totalWorkingHours = 0;
+        int totalWorkingDays = 0;
+        Random random = new Random();
 
         System.out.println("Calculating wages for " + companyName);
 
-        while(totalWorkingDays < maxWorkingDays && totalWorkingHours < maxWorkingHours) {
+        while (totalWorkingDays < maxWorkingDays && totalWorkingHours < maxWorkingHours) {
+            int attendance = random.nextInt(3); // 0 - absent, 1 - full time, 2 - part time
+            int dailyWage = 0;
 
-            int attendance = random.nextInt(3); // 0-absent // 1 - present full time // 2 - present part-time
-            int dailyWage =0;
             switch (attendance) {
                 case 0:
                     System.out.println("Employee absent: No work done");
-
                     break;
                 case 1:
                     System.out.println("Employee present: Full time");
@@ -41,16 +46,12 @@ public class EmployeeWage {
                     dailyWage = wagePerHour * partTimeHour;
                     totalWorkingHours += partTimeHour;
                     break;
-
-                default:
-                    System.out.println("Invalid attendance");
-                    break;
             }
+
             totalWage += dailyWage;
             totalWorkingDays++;
             System.out.println("Day " + totalWorkingDays + ": Daily Wage = " + dailyWage);
             System.out.println("---------------------------");
-
         }
 
         System.out.println("-----------------------------");
@@ -59,6 +60,25 @@ public class EmployeeWage {
         System.out.println("Total Working Days: " + totalWorkingDays);
         System.out.println("Total Working Hours: " + totalWorkingHours);
         System.out.println("-----------------------------");
+    }
 
+    // Getter
+    public int getTotalWage() {
+        return totalWage;
+    }
+}
+
+public class EmployeeWage {
+    public static void main(String[] args) {
+        System.out.println("Welcome to Employee Wage Computation Program.");
+        System.out.println("Computing wages for multiple companies:\n");
+
+        EmpWageBuilder tcs = new EmpWageBuilder("TCS", 20, 8, 4, 20, 100);
+        tcs.computeEmployeeWage();
+
+        System.out.println();
+
+        EmpWageBuilder infosys = new EmpWageBuilder("Infosys", 22, 8, 4, 22, 120);
+        infosys.computeEmployeeWage();
     }
 }
